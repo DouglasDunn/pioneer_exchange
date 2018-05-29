@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import classnames from 'classnames';
 
+import '../styling/register.css';
+
 class Register extends Component {
   constructor() {
     super();
@@ -45,13 +47,14 @@ class Register extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
+              <h1 id="signin-title" className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">
-                Create your DevConnector account
+                Create your Pioneer Exchange account
               </p>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
+                    id="name-box"
                     type="text"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.name
@@ -67,6 +70,7 @@ class Register extends Component {
                 </div>
                 <div className="form-group">
                   <input
+                    id = "email-box"
                     type="email"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.email
@@ -86,6 +90,7 @@ class Register extends Component {
                 </div>
                 <div className="form-group">
                   <input
+                  id = "password-box"
                     type="password"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.password
@@ -101,6 +106,7 @@ class Register extends Component {
                 </div>
                 <div className="form-group">
                   <input
+                    id = "password2-box"
                     type="password"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.password2
