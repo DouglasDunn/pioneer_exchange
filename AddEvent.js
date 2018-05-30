@@ -3,7 +3,8 @@ class AddEvent extends React.Component {
       super(props);
       this.addEvent = this.addEvent.bind(this);
       this.handleNameChange = this.handleNameChange.bind(this);
-      this.handleDiscriptionChange = this.handleDIscriptionChange.bind(this);
+      this.handleDateChange = this.handleDateChange.bind(this);
+      this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
       this.state = {
         name:'',
         date:'',
@@ -18,7 +19,7 @@ class AddEvent extends React.Component {
       axios.post('/addEvent', {
         name: this.state.name,
         date: this.state.date,
-        discription: this.state.description
+        description: this.state.description
       })
       .then(function (response) {
         console.log('reponse from add event',response);
@@ -34,7 +35,7 @@ class AddEvent extends React.Component {
     handleDateChange(e){
         this.setState({date:e.target.value})
     }
-    handleDiscriptionChange(e){
+    handleDescriptionChange(e){
       this.setState({description:e.target.value})
     }
     render() {
