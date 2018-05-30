@@ -5,10 +5,12 @@ class AddEvent extends React.Component {
       this.handleNameChange = this.handleNameChange.bind(this);
       this.handleDateChange = this.handleDateChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+      this.handleAddDataChange = this.handleAddDataChange.bind(this);
       this.state = {
         name:'',
         date:'',
-        description:''
+        description:'',
+        addData:''
       };
     }
     componentDidMount(){
@@ -19,7 +21,8 @@ class AddEvent extends React.Component {
       axios.post('/addEvent', {
         name: this.state.name,
         date: this.state.date,
-        description: this.state.description
+        description: this.state.description,
+        addData: this.state.addData
       })
       .then(function (response) {
         console.log('reponse from add event',response);
@@ -38,6 +41,9 @@ class AddEvent extends React.Component {
     handleDescriptionChange(e){
       this.setState({description:e.target.value})
     }
+    handleAddDataChange(e){
+        this.setState({addData:e.target.value})
+    }
     render() {
       return (
         <div className="col-md-5">
@@ -53,7 +59,11 @@ class AddEvent extends React.Component {
                 </div>
                
                 <div className="form-group">
-                  <textarea className="form-control" onChange={this.handleDescriptionChange} type="textarea" id="description" placeholder="Description" maxlength="500" rows="7"></textarea>
+                  <textarea onChange={this.handleDescriptionChange} type="textarea" id="description" placeholder="Description" maxlength="100" rows="5"></textarea>
+                </div>
+          
+                <div classname="form-group">
+                    <textarea onchange={this.handleAddDataChange} type="textarea" id="addData" placeholder="Additional Information" maxlength="500" rows="10"></textarea>
                 </div>
                   
                 <button type="button" onClick={this.addEvent} id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
