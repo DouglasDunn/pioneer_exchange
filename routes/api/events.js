@@ -63,4 +63,29 @@ router.post(
   }
 );
 
+// @route   DELETE api/posts/:id
+// @desc    Delete post
+// @access  Private
+router.delete(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Event.findById(req.params.id)
+        .then(event => {
+          // Check for post owner
+          if (event.user.toString() !== req.user.id) {
+            return res
+              .status(401)
+              .json({ notauthorized: 'User not authorized' });
+          }
+
+          // Delete
+          event.remove().then(() => res.json({ success: true }));
+        })
+        .catch(err => res.status(404).json({ eventnotfound: 'No event found' }));
+    });
+  }
+);
+
 module.exports = router;
