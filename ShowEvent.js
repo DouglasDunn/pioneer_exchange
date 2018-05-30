@@ -35,7 +35,7 @@ class ShowEvent extends React.Component {
                  return <a href="#" key={index} className="list-group-item active">
                           <h4 className="list-group-item-heading">{event.name}</h4>
                           <p classname="list-group-item-text">{event.date}</p>
-                          <p className="list-group-item-text">{event.discription}</p>
+                          <p className="list-group-item-text">{event.description}</p>
                         </a>
               })
             }
