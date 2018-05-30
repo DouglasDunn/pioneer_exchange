@@ -1,35 +1,27 @@
 const mongoose = require('mongoose');
-const fs = require('fs');
-const multer = require('multer');
+// const fs = require('fs');
+// const multer = require('multer');
 const Schema = mongoose.Schema;
-
-//Create Event schema 
+//Create Event Postschema
 const EventSchema = new Schema({
-    _id2:{
+    name:{
         type:String,
-        required:true
+        required: true
     },
-    eventname:{
+    details:{
         type:String,
-        required: true,
-        max:70,
-    },
-    price:{
-        type:Number,
         required:true
     },
     date:{
         type: Date,
         default: Date.now
     },
-    img:{
-        data: Buffer,
-        contentType: String,
-    },
+    // img:{
+    //     data: Buffer,
+    //     contentType: String,
+    // },
     additional:{
-        type:String,
-        required:true
+        type:String
     }
 });
-
-mongoose.model('BuynSell', EventSchema);
+module.exports = Event = mongoose.model('events', EventSchema);
