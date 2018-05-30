@@ -3,24 +3,33 @@
 // const multer = require('multer');
 // const Schema = mongoose.Schema;
 //
-// //Create Other schema
-// const OtherSchema = new Schema({
-//     itemname:{
+// //Create Event schema
+// const EventSchema = new Schema({
+//     _id2:{
+//         type:String,
+//         required:true
+//     },
+//     eventname:{
 //         type:String,
 //         required: true,
-//         max:60,
+//         max:70,
 //     },
 //     price:{
 //         type:Number,
 //         required:true
+//     },
+//     date:{
+//         type: Date,
+//         default: Date.now
 //     },
 //     img:{
 //         data: Buffer,
 //         contentType: String,
 //     },
 //     additional:{
-//         type: String,
+//         type:String,
 //         required:true
 //     }
 // });
-// mongoose.model('BuynSell', OtherSchema);
+//
+// mongoose.model('BuynSell', EventSchema);
