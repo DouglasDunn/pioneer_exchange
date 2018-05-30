@@ -7,7 +7,7 @@ class AddEvent extends React.Component {
       this.state = {
         name:'',
         date:'',
-        discription:''
+        description:''
       };
     }
     componentDidMount(){
@@ -18,7 +18,7 @@ class AddEvent extends React.Component {
       axios.post('/addEvent', {
         name: this.state.name,
         date: this.state.date,
-        discription: this.state.discription
+        discription: this.state.description
       })
       .then(function (response) {
         console.log('reponse from add event',response);
@@ -29,13 +29,13 @@ class AddEvent extends React.Component {
       });
     }
     handleNameChange(e){
-      this.setState({title:e.target.value})
+      this.setState({name:e.target.value})
     }
     handleDateChange(e){
         this.setState({date:e.target.value})
     }
     handleDiscriptionChange(e){
-      this.setState({subject:e.target.value})
+      this.setState({description:e.target.value})
     }
     render() {
       return (
@@ -52,7 +52,7 @@ class AddEvent extends React.Component {
                 </div>
                
                 <div className="form-group">
-                  <textarea className="form-control" onChange={this.handleDiscriptionChange} type="textarea" id="discription" placeholder="Discription" maxlength="500" rows="7"></textarea>
+                  <textarea className="form-control" onChange={this.handleDescriptionChange} type="textarea" id="description" placeholder="Description" maxlength="500" rows="7"></textarea>
                 </div>
                   
                 <button type="button" onClick={this.addEvent} id="submit" name="submit" className="btn btn-primary pull-right">Add Event</button>
