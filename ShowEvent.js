@@ -31,7 +31,7 @@ class ShowEvent extends React.Component {
           <div className="list-group"> 
 
             {
-              this.state.eventa.map(function(event,index) {
+              this.state.events.map(function(event,index) {
                  return <a href="#" key={index} className="list-group-item active">
                           <h4 className="list-group-item-heading">{event.name}</h4>
                           <p classname="list-group-item-text">{event.date}</p>
