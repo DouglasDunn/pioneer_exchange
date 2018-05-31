@@ -13,6 +13,12 @@ const ElectronicSchema = new Schema({
         type:String,
         required: true
     },
+
+    details:{
+        type:String,
+        required:true
+    },
+    
     brand:{
         type:String,
         required:true
