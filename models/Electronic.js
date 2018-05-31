@@ -1,36 +1,32 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // const fs = require('fs');
 // const multer = require('multer');
-// const Schema = mongoose.Schema;
-//
-// //Create electronic schema
-// const ElectronicSchema = new Schema({
-//     _id:{
-//         type:String,
-//         required:true
-//     },
-//     title:{
-//         type:String,
-//         required: true,
-//         max: 60,
-//     },
-//     brand:{
-//         type:String,
-//         required:true,
-//         max: 50,
-//     },
-//     price:{
-//         type: Number,
-//         required:true
-//     },
-//     img:{
-//         data: Buffer,
-//         contentType: String,
-//     },
-//     additional:{
-//         type:String,
-//         required:true
-//     }
-// });
-//
-// mongoose.model('BuynSell', ElectronicSchema);
+const Schema = mongoose.Schema;
+
+//Create electronic schema
+const ElectronicSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    name:{
+        type:String,
+        required: true
+    },
+    brand:{
+        type:String,
+        required:true
+    },
+    price:{
+        type: Number,
+        required:true
+    },
+    // img:{
+    //     data: Buffer,
+    //     contentType: String,
+    // },
+    additional:{
+        type:String
+    }
+});
+module.exports = Electronic = mongoose.model('electronics', ElectronicSchema);

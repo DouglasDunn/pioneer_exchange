@@ -1,26 +1,28 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // const fs = require('fs');
 // const multer = require('multer');
-// const Schema = mongoose.Schema;
-//
-// //Create Other schema
-// const OtherSchema = new Schema({
-//     itemname:{
-//         type:String,
-//         required: true,
-//         max:60,
-//     },
-//     price:{
-//         type:Number,
-//         required:true
-//     },
-//     img:{
-//         data: Buffer,
-//         contentType: String,
-//     },
-//     additional:{
-//         type: String,
-//         required:true
-//     }
-// });
-// mongoose.model('BuynSell', OtherSchema);
+const Schema = mongoose.Schema;
+
+//Create Other schema
+const OtherSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    name:{
+        type:String,
+        required: true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    // img:{
+    //     data: Buffer,
+    //     contentType: String,
+    // },
+    additional:{
+        type: String
+    }
+});
+module.exports = Other = mongoose.model('others', OtherSchema);
