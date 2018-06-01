@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
+import '../styling/login.css';
 
 class Login extends Component {
   constructor() {
@@ -6,7 +8,8 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      errors: {},
+      redirect: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -21,6 +24,8 @@ class Login extends Component {
       password: this.state.password
     };
 
+    this.setState({redirect: true});
+
     console.log(user);
   }
 
@@ -34,13 +39,14 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">
-                Sign in to your DevConnector account
+              <h1 id="login-title" className="display-4 text-center">Log In</h1>
+              <p id = "subtext-signin" className="lead text-center">
+                Sign in to your Pioneer Exchange account
               </p>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
+                    id="email-textbox"
                     type="email"
                     className="form-control form-control-lg"
                     placeholder="Email Address"
@@ -51,6 +57,7 @@ class Login extends Component {
                 </div>
                 <div className="form-group">
                   <input
+                    id = "password-textbox"
                     type="password"
                     className="form-control form-control-lg"
                     placeholder="Password"
@@ -61,6 +68,8 @@ class Login extends Component {
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
+              {this.state.redirect &&
+              <Redirect to='/textbooks'/>}
             </div>
           </div>
         </div>
