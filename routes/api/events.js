@@ -63,8 +63,8 @@ router.post(
   }
 );
 
-// @route   DELETE api/posts/:id
-// @desc    Delete post
+// @route   DELETE api/events/:id
+// @desc    Delete event
 // @access  Private
 router.delete(
   '/:id',
@@ -73,7 +73,7 @@ router.delete(
     Profile.findOne({ user: req.user.id }).then(profile => {
       Event.findById(req.params.id)
         .then(event => {
-          // Check for post owner
+          // Check for event owner
           if (event.user.toString() !== req.user.id) {
             return res
               .status(401)
