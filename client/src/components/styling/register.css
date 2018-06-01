@@ -1,0 +1,27 @@
+p{
+    color: rgba(255, 102, 0, 0.658);
+}
+
+#signin-title{
+    color: purple;
+}
+
+#name-box{
+    border-color: black;
+}
+
+#email-box {
+    border-color: black;
+}
+
+#password-box {
+    border-color: black;
+}
+
+#password2-box {
+    border-color: black;
+}
+
+.register{
+    background-color: yellow;
+}

@@ -9,6 +9,7 @@ const posts = require('./routes/api/posts');
 const events = require('./routes/api/events');
 const eventTickets = require('./routes/api/eventTickets');
 const electronics = require('./routes/api/electronics');
+const housings = require('./routes/api/housings');
 
 const app = express();
 
@@ -38,6 +39,17 @@ app.use('/api/posts', posts);
 app.use('/api/events', events);
 app.use('/api/eventTickets', eventTickets);
 app.use('/api/electronics', electronics);
+app.use('/api/housings', housings);
+
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const port = process.env.PORT || 5000;
 
